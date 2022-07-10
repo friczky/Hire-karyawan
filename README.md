@@ -2,7 +2,7 @@
 Aplikasi ini merupakan sistem untuk memanajemen lowongan kerja.
 
 # Fitur
-1. CRUD Kerjaa
+1. CRUD Kerjaan
 2. Email Sender
 3. Auth
 
