@@ -128,7 +128,7 @@
             <!-- halaman email terkirim  -->
           <li class="nav-item">
             <a href="<?= admin()?>halaman/email" class="nav-link">
-              <i class="nav-icon fa fa-at"></i>
+              <i class="nav-icon fa fa-paper-plane"></i>
               <p>
                 Email Terkirim
                 <span class="badge badge-info right">6</span>

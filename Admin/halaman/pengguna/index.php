@@ -41,7 +41,7 @@ include '../../komponen/sidebar.php';
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Subjek</th>
+                        <th>Role</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@ include '../../komponen/sidebar.php';
                         <td>friczky@gmail.com</td>
                         <td>Daftar Akun</td>
                         <td>
-                            <a href="#" class="btn btn-primary">Detail</a>
+                            <a href="<?= admin()?>halaman/pengguna/edit.php" class="btn btn-primary">Edit</a>
                             <a href="#" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
