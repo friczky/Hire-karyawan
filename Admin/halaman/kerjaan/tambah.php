@@ -38,29 +38,31 @@ include '../../komponen/sidebar.php';
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form action="" class="form-horizontal">
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" name="judul" class="form-control" id="inputName" placeholder="Judul Kerjaan">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <select name="id_kategori" id="" class="form-control">
+                            <option value="">Pilih Kategori</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
-                          <textarea name="" id="summernote" cols="30" rows="10"></textarea>
+                          <textarea class="form-control" name="deskripsi" id="summernote" cols="30" rows="10"></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Foto</label>
                         <div class="col-sm-10">
-                         <input type="file" class="form-control" id="customFile">
+                         <input type="file" name="foto" class="form-control" id="customFile">
                         </div>
                       </div>
                       
