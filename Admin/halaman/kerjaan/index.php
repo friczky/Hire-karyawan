@@ -53,7 +53,7 @@ include '../../komponen/sidebar.php';
                         <td>friczky@gmail.com</td>
                         <td>Daftar Akun</td>
                         <td>
-                            <a href="<?= admin()?>halaman/kerjaan/edit.php" class="btn btn-primary">Edit</a>
+                            <a href="<?= admin()?>" class="btn btn-primary">Edit</a>
                             <a href="#" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
