@@ -71,4 +71,9 @@ function home_vendor(){
     return assets().'Home/vendor/';
 }
 
+// folder home img
+function uploads(){
+    return assets().'Uploads/';
+}
+
 ?>

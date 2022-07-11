@@ -5,6 +5,7 @@ Aplikasi ini merupakan sistem untuk memanajemen lowongan kerja. Aplikasi ini dib
 1. CRUD Kerjaan
 2. Email Sender
 3. Auth
+4. Multiuser
 
 # Syarat Penggunaan
 1. PHP 7 >
