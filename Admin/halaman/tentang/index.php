@@ -42,37 +42,26 @@ include '../../komponen/sidebar.php';
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama Web</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" name="nama_Web" class="form-control" id="inputName" placeholder="Name">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">Maps URL</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <textarea name="maps" id="" cols="10" rows="3" class="form-control"></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">Logo</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                        <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                          <input type="file" name="logo" class="form-control" id="inputName" >
                         </div>
                       </div>
                       
+                      
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
+                          <button type="submit" class="btn btn-primary">Perbahrui</button>
                         </div>
                       </div>
                     </form>
