@@ -40,18 +40,18 @@ include '../../komponen/sidebar.php';
                     <tr align="center">
                         <th>No.</th>
                         <th>Nama</th>
-                        <th>Email</th>
-                        <th>Subjek</th>
+                        <th>Pemilik</th>
+                        <th>Berkas</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr align="center">
                         <td>1.</td>
-                        <td>Fadilah Riczky
+                        <td>CV
                         </td>
-                        <td>friczky@gmail.com</td>
-                        <td>Daftar Akun</td>
+                        <td>Fadilah Riczky</td>
+                        <td><a href="" class="btn btn-primary sm"><i class="fa fa-download"></i></a></td>
                         <td>
                             <a href="#" class="btn btn-primary">Detail</a>
                             <a href="#" class="btn btn-danger">Hapus</a>
