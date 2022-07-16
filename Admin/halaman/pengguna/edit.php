@@ -42,7 +42,7 @@ $data = mysqli_fetch_assoc($query);
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form action="" class="form-horizontal">
+                    <form action="aksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
@@ -88,7 +88,9 @@ $data = mysqli_fetch_assoc($query);
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
+                          <input type="hidden" name="id" value="<?= $data['id']?>">
+                          <input type="hidden" name="foto_old" value="<?= $data['foto']?>">
+                          <button type="submit" name="update" class="btn btn-primary">Simpan</button>
                         </div>
                       </div>
                     </form>

@@ -43,7 +43,7 @@ $data = mysqli_fetch_assoc($query);
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form action="aksi.php" method="post" class="form-horizontal">
+                    <form action="aksi.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama Web</label>
                         <div class="col-sm-10">
@@ -60,6 +60,7 @@ $data = mysqli_fetch_assoc($query);
                         <label for="inputName" class="col-sm-2 col-form-label">Logo</label>
                         <div class="col-sm-10">
                           <input type="file" name="logo" class="form-control" id="inputName" >
+                          <input type="hidden" name="logo_old" value="<?= $data['logo']?>">
                         </div>
                       </div>
                       

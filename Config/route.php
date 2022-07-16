@@ -88,7 +88,7 @@ function home_vendor(){
 
 // folder home img
 function folder_upload(){
-    return base_url().'uploads/';
+    return base_url().'Admin/upload/';
 }
 
 ?>

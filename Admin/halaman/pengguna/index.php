@@ -57,6 +57,7 @@ include '../../komponen/sidebar.php';
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Role</th>
+                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -79,6 +80,7 @@ include '../../komponen/sidebar.php';
                             }
                             ?>
                         </td>
+                        <td><img src="../../upload/<?= $data['foto']?>" width="50px" alt=""></td>
                         <td>
                             <a href="edit.php?id=<?= $data['id']?>" class="btn btn-primary">Edit</a>
                             <a href="aksi.php?id=<?= $data['id']?>&hapus" class="btn btn-danger">Hapus</a>
