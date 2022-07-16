@@ -1,9 +1,10 @@
 <?php 
 
-$judul = 'Email Terkirim';
+$judul = 'Data Pengguna';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
 ?>
 
 <!-- content -->
@@ -15,7 +16,7 @@ include '../../komponen/sidebar.php';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Email</h1>
+                    <h1>Pengguna</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,10 +32,24 @@ include '../../komponen/sidebar.php';
         <br>
         <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Data Email Terkirim</h3>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="card-title">Data Pengguna</h3>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <a href="<?= admin()?>halaman/pengguna/tambah.php" class="btn btn-primary">
+                        <i class="fa fa-plus"></i> Tambah
+                    </a>
+                </div>
+            </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+           <?php 
+           if(isset($_GET['pesan'])){
+            echo '<div class="alert alert-success">'.$_GET['pesan'].'</div>';
+           }
+           ?>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr align="center">
@@ -46,18 +61,30 @@ include '../../komponen/sidebar.php';
                     </tr>
                 </thead>
                 <tbody>
+                   <?php 
+                    $sql = "SELECT * FROM pengguna";
+                    $query = mysqli_query($koneksi,$sql);
+                    $i = 1;
+                    while($data = mysqli_fetch_assoc($query)){
+                   ?>
                     <tr align="center">
-                        <td>1.</td>
-                        <td>Fadilah Riczky
-                        </td>
-                        <td>friczky@gmail.com</td>
-                        <td>Daftar Akun</td>
+                        <td><?= $i ?>.</td>
+                        <td><?= $data['nama']?></td>
+                        <td><?= $data['email']?></td>
                         <td>
-                            <a href="<?= admin()?>halaman/pengguna/edit.php" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <?php if($data['role'] == '0'){
+                                echo '<span class="badge badge-danger">Admin</span>';
+                            }else{
+                                echo '<span class="badge badge-success">Pelamar</span>';
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <a href="edit.php?id=<?= $data['id']?>" class="btn btn-primary">Edit</a>
+                            <a href="aksi.php?id=<?= $data['id']?>&hapus" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
-
+                    <?php $i++; } ?>
                 </tbody>
                 
             </table>

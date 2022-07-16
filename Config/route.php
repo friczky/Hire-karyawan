@@ -9,9 +9,24 @@ function base_url(){
     );
   }
 
+
 function login(){
-    return base_url()."Login/";
+    return base_url()."Auth/login.php";
 }
+
+function daftar(){
+    return base_url()."Auth/daftar.php";
+}
+
+function Logout(){
+    return base_url()."Auth/login.php";
+}
+
+
+function auth(){
+    return base_url()."Auth/";
+}
+
 
 function admin(){
     return base_url()."Admin/";
@@ -72,8 +87,8 @@ function home_vendor(){
 }
 
 // folder home img
-function uploads(){
-    return assets().'Uploads/';
+function folder_upload(){
+    return base_url().'uploads/';
 }
 
 ?>

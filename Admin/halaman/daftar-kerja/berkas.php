@@ -1,7 +1,7 @@
 <?php 
 $judul = 'Upload Berkas Pendaftaran';
 include '../../komponen/header.php';
-include '../../komponen/navbar.php';
+include '../../komponen/navbar-pelamar.php';
 include '../../komponen/sidebar-pelamar.php';
 ?>
 
@@ -71,7 +71,7 @@ include '../../komponen/sidebar-pelamar.php';
             </div>
             <!-- /.card -->
             </div>
-            
+
             <div class="card">
                 <div class="card-body">
                 <table class="table">

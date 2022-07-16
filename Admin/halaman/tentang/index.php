@@ -3,6 +3,11 @@ $judul = 'Tentang';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$sql = "SELECT * FROM tentang WHERE id=1";
+$query = mysqli_query($koneksi,$sql);
+$data = mysqli_fetch_assoc($query);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -38,17 +43,17 @@ include '../../komponen/sidebar.php';
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form action="aksi.php" method="post" class="form-horizontal">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama Web</label>
                         <div class="col-sm-10">
-                          <input type="text" name="nama_Web" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" name="nama_web" class="form-control" id="inputName" value="<?= $data['nama_web']?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Maps URL</label>
                         <div class="col-sm-10">
-                          <textarea name="maps" id="" cols="10" rows="3" class="form-control"></textarea>
+                          <textarea name="maps_url" id="" cols="10" rows="3" class="form-control"><?= $data['maps_url']?></textarea>
                         </div>
                       </div>
                       <div class="form-group row">

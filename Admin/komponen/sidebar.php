@@ -1,3 +1,19 @@
+
+<?php 
+
+// if($_SESSION['role'] != '0'){
+//   echo '<script>';
+//   echo 'alert("Anda Tidak Memiliki Akses");';
+//   echo '</script>';
+//   echo '<script>';
+//   echo 'window.location.href = "'.admin().'";';
+//   echo '</script>';
+// }else{
+// }
+
+
+
+?>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -14,7 +30,7 @@
           <img src="<?= admin_assets() ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?= $_SESSION['nama']?></a>
         </div>
       </div>
 
@@ -51,7 +67,7 @@
               <p>
                 Master Kerjaan
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -82,7 +98,6 @@
               <i class="nav-icon fa fa-user-astronaut"></i>
               <p>
                 Data Pelamar
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
           </li>
@@ -93,7 +108,6 @@
               <i class="nav-icon fa fa-folder"></i>
               <p>
                 Data Berkas
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
           </li>
@@ -105,7 +119,6 @@
               <p>
                 Master Pengguna
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -131,7 +144,6 @@
               <i class="nav-icon fa fa-paper-plane"></i>
               <p>
                 Email Terkirim
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
           </li>

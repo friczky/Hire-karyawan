@@ -38,7 +38,7 @@ include '../../komponen/sidebar.php';
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form action="" class="form-horizontal">
+                    <form action="aksi.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
@@ -54,7 +54,7 @@ include '../../komponen/sidebar.php';
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputName2" placeholder="Password">
+                          <input type="password" name="password" class="form-control" id="inputName2" placeholder="Password">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -62,6 +62,8 @@ include '../../komponen/sidebar.php';
                         <div class="col-sm-10">
                           <select name="role" id="" class="form-control">
                             <option value="">Pilih Role</option>
+                            <option value="0">Admin</option>
+                            <option value="1">Pelamar</option>
                           </select>
                         </div>
                       </div>
@@ -74,7 +76,7 @@ include '../../komponen/sidebar.php';
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
+                          <button type="submit" name="tambah" class="btn btn-primary">Simpan</button>
                         </div>
                       </div>
                     </form>

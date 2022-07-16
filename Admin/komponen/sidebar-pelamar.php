@@ -14,7 +14,7 @@
           <img src="<?= admin_assets() ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?= $_SESSION['nama']?></a>
         </div>
       </div>
 
@@ -34,15 +34,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
-            <!-- halaman dashboard  -->
-          <li class="nav-item menu-open">
-            <a href="<?= admin()?>" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
+         
 
 
           <!-- halaman data kontak  -->
@@ -67,7 +59,7 @@
 
           <!-- halaman profile -->
           <li class="nav-item">
-            <a href="<?= admin()?>halaman/profile" class="nav-link">
+            <a href="<?= admin()?>halaman/profile/pelamar.php" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Profile 
