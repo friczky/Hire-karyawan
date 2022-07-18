@@ -42,11 +42,11 @@ $query = mysqli_query($koneksi,$sql);
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form action="aksi.php" method="post" class="form-horizontal">
+                    <form action="aksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-10">
-                          <input type="text" name="judul" class="form-control" id="inputName" placeholder="Judul Kerjaan">
+                          <input type="text" name="nama" class="form-control" id="inputName" placeholder="Judul Kerjaan">
                         </div>
                       </div>
                       <div class="form-group row">

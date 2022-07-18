@@ -10,33 +10,33 @@ $query = mysqli_query($koneksi,$sql);
 
 if(isset($_GET['edit'])){
   $id = $_GET['edit'];
-  $sql = "SELECT * FROM kategori_kerjaan WHERE id='$id'";
+  $sql = "SELECT * FROM kategori_kerjaan WHERE id_kategori='$id'";
   $edit = mysqli_query($koneksi,$sql);
   $data = mysqli_fetch_assoc($edit);
 }
 
 if(isset($_GET['edit'])){
-  echo $nama = $data['nama'];
+  $nama = $data['kategori'];
 }else{
-  echo $nama = null ;
+  $nama = null ;
 }
 
 if(isset($_GET['edit'])){
-  echo $id = $data['id'];
+  $id = $data['id_kategori'];
 }else {
-  echo $id = null ;
+  $id = null ;
 }
 
 if(isset($_GET['edit'])){
-  echo $method_name = 'edit_kategori';
+  $method_name = 'edit_kategori';
 }else {
-  echo $method_name = 'tambah_kategori';
+  $method_name = 'tambah_kategori';
 }
 
 if(isset($_GET['edit'])){
-  echo $button_name = 'Perbahrui';
+  $button_name = 'Perbahrui';
 }else {
-  echo $button_name = 'Tambah';
+  $button_name = 'Tambah';
 }
 
 ?>
@@ -68,7 +68,7 @@ if(isset($_GET['edit'])){
                 <div class="form-group row">
                         <div class="col-sm-6">
                         <form action="aksi.php" method="post">
-                        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Kategori" value="<?= $nama ?>">
+                        <input type="text" class="form-control" name="kategori" placeholder="Masukan Nama Kategori" value="<?= $nama ?>">
                         <input type="hidden" name="id" value="<?= $id ?>">  
                       </div>
                         <div class="col-sm-6 text-right">
@@ -90,10 +90,10 @@ if(isset($_GET['edit'])){
                     <?php $no =1; foreach ($query as $k){?>
                         <tr align="center">
                             <td><?= $no++?>.</td>
-                            <td><?= $k['nama']?></td>
+                            <td><?= $k['kategori']?></td>
                             <td>
-                                <a href="kategori.php?edit=<?= $k['id']?>" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                <a href="aksi.php?hapus_kategori=<?= $k['id']?>" onclick="return confirm('Apakah anda ingin menghapus kategori ini ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="kategori.php?edit=<?= $k['id_kategori']?>" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="aksi.php?hapus_kategori=<?= $k['id_kategori']?>" onclick="return confirm('Apakah anda ingin menghapus kategori ini ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php }?>

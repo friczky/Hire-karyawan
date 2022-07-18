@@ -5,7 +5,7 @@ include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
 
-$sql = "SELECT * FROM kerjaan";
+$sql = "SELECT * FROM kerjaan join kategori_kerjaan on kerjaan.id_kategori = kategori_kerjaan.id_kategori";
 $query = mysqli_query($koneksi,$sql);
 
 ?>
@@ -56,11 +56,11 @@ $query = mysqli_query($koneksi,$sql);
                         <td><?= $no++?>.</td>
                         <td><?= $k['nama']?></td>
                         <td><?= substr($k['deskripsi'],0,100)?></td>
-                        <td><?= $k['id_kategori']?></td>
-                        <td><img src="" width="50px" alt=""></td>
+                        <td><?= $k['kategori']?></td>
+                        <td><img src="<?= folder_upload()?><?= $k['foto']?>" width="50px" alt=""></td>
                         <td>
-                            <a href="<?= admin()?>" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="edit.php?id=<?= $k['id']?>" class="btn btn-primary">Edit</a>
+                            <a href="aksi.php?hapus_kerjaan=<?= $k['id']?>" onclick="return confirm('Apakah ingin menghapus data kerjaan ini ?')" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                 <?php } ?>
