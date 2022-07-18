@@ -4,6 +4,41 @@ $judul = 'Kategori Kerjaan';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$sql = "SELECT * FROM kategori_kerjaan";
+$query = mysqli_query($koneksi,$sql);
+
+if(isset($_GET['edit'])){
+  $id = $_GET['edit'];
+  $sql = "SELECT * FROM kategori_kerjaan WHERE id='$id'";
+  $edit = mysqli_query($koneksi,$sql);
+  $data = mysqli_fetch_assoc($edit);
+}
+
+if(isset($_GET['edit'])){
+  echo $nama = $data['nama'];
+}else{
+  echo $nama = null ;
+}
+
+if(isset($_GET['edit'])){
+  echo $id = $data['id'];
+}else {
+  echo $id = null ;
+}
+
+if(isset($_GET['edit'])){
+  echo $method_name = 'edit_kategori';
+}else {
+  echo $method_name = 'tambah_kategori';
+}
+
+if(isset($_GET['edit'])){
+  echo $button_name = 'Perbahrui';
+}else {
+  echo $button_name = 'Tambah';
+}
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -25,18 +60,22 @@ include '../../komponen/sidebar.php';
       
    
         <div class="card">
-            <div class="card-body">
-                <div class="card-header">
+        <div class="card-header">
                 <h1>Data Kategori</h1>
                 </div>
+            <div class="card-body">
                 <br>
                 <div class="form-group row">
                         <div class="col-sm-6">
-                        <input type="text" class="form-control" name="kategori" placeholder="Masukan Nama Kategori">
-                        </div>
+                        <form action="aksi.php" method="post">
+                        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama Kategori" value="<?= $nama ?>">
+                        <input type="hidden" name="id" value="<?= $id ?>">  
+                      </div>
                         <div class="col-sm-6 text-right">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</button>
+                            <button type="submit" name="<?= $method_name ?>" class="btn btn-primary"><i class="fa fa-plus"></i> 
+                            <?= $button_name ?></button>
                         </div>
+                        </form>
                 </div>
                 <br><hr>
                 <table id="example1" class="table table-bordered table-striped">
@@ -48,14 +87,17 @@ include '../../komponen/sidebar.php';
                         </tr>
                     </thead>
                     <tbody>
-                    <tr align="center">
-                            <td>1.</td>
-                            <td>Kerjaan</td>
+                    <?php $no =1; foreach ($query as $k){?>
+                        <tr align="center">
+                            <td><?= $no++?>.</td>
+                            <td><?= $k['nama']?></td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Hapus</a>
+                                <a href="kategori.php?edit=<?= $k['id']?>" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="aksi.php?hapus_kategori=<?= $k['id']?>" onclick="return confirm('Apakah anda ingin menghapus kategori ini ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
+                    <?php }?>
+
                     </tbody>
                 </table>
             </div>

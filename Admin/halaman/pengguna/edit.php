@@ -58,7 +58,8 @@ $data = mysqli_fetch_assoc($query);
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputName2" value="<?= $data['password']?>">
+                          <input type="password" name="password" class="form-control" id="inputName2" value="<?= $data['password']?>">
+                          <input type="hidden" name="password_lama" value="<?= $data['password']?>">
                         </div>
                       </div>
                       <div class="form-group row">

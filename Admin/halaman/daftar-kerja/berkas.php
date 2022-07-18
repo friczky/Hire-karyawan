@@ -3,6 +3,11 @@ $judul = 'Upload Berkas Pendaftaran';
 include '../../komponen/header.php';
 include '../../komponen/navbar-pelamar.php';
 include '../../komponen/sidebar-pelamar.php';
+
+$id = $_SESSION['id'];
+$sql = "SELECT * FROM berkas JOIN pengguna ON berkas.id_pengguna = pengguna.id WHERE id_pengguna = $id";
+$query = mysqli_query($koneksi,$sql);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -41,19 +46,22 @@ include '../../komponen/sidebar-pelamar.php';
                     <form class="form-horizontal">
 
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Surat Lamaran Kerja</label>
+                        <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="file" name="surat" class="form-control" placeholder="Nama">
+                          <select name="" id="" class="form-control">
+                            <option value="">Pilih Jenis Berkas</option>
+                            <option value="CV/Resume/Portfolio">CV/Resume/Portfolio</option>
+                            <option value="Surat Lamaran Kerja">Surat Lamaran Kerja</option>
+                          </select>
                         </div>
                       </div>
                     
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">CV / Resmue</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">File (pdf,docx)</label>
                         <div class="col-sm-10">
-                          <input type="file" name="cv" class="form-control" id="inputName" >
+                          <input type="file" name="berkas" class="form-control" id="inputName" >
                         </div>
                       </div>
-                      
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
@@ -74,17 +82,25 @@ include '../../komponen/sidebar-pelamar.php';
 
             <div class="card">
                 <div class="card-body">
-                <table class="table">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Surat Lamaran</th>
-                        <th>CV</th>
+                        <th>Nama</th>
+                        <th>Download</th>
+                        <th>Aksi</th>
                     </tr>
+                    </thead>
+                    <tbody>
+                    <?php $i = 1; while($berkas = mysqli_fetch_assoc($query)) { ?>
                     <tr>
-                        <td>1.</td>
-                        <td><a href="">Lihat berkas</a></td>
-                        <td><a href="">Lihat berkas</a></td>
+                        <td><?= $i ?></td>
+                        <td><?= $berkas['nama']?>">Lihat berkas</a></td>
+                        <td><a href="<?= folder_upload()?><?= $berkas['berkas']?>">Lihat berkas</a></td>
+                        <td><a href="" class="btn btn-danger">Hapus</a></td>
                     </tr>
+                    <?php $i++; } ?>
+                    </tbody>
                 </table>
                 </div>
           </div>

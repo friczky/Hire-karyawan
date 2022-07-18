@@ -15,7 +15,7 @@
                         <li><a href="explore.html">Karir</a></li>
                         <li><a href="details.html">Kontak</a></li>
                         <li><a href="author.html">Tentang</a></li>
-                        <li><a href="<?= admin()?>" class="btn btn-primary" style="color: white;">Masuk</a></li>
+                        <li><a href="<?= login()?>" class="btn btn-primary" style="color: white;">Masuk</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

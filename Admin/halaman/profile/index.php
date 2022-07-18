@@ -10,7 +10,6 @@ $sql = "SELECT * FROM pengguna WHERE id = $id";
 $query = mysqli_query($koneksi,$sql);
 $row = mysqli_fetch_array($query);
 
-
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -43,11 +42,11 @@ $row = mysqli_fetch_array($query);
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="<?= admin_assets()?>dist/img/user4-128x128.jpg"
+                       src="<?= folder_upload() ?><?php if($row['foto'] == null){echo 'profile.png';}else{echo $row['foto'];}?>"
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center"><?= $row['nama']?></h3>
 
                 <p class="text-muted text-center">Administrator</p>
 
@@ -86,6 +85,7 @@ $row = mysqli_fetch_array($query);
                         <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
                           <input type="password" class="form-control" id="inputName2" value="<?= $row['password']?>" name="password">
+                          <input type="hidden" value="<?= $row['password']?>" name="password_lama">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -99,7 +99,7 @@ $row = mysqli_fetch_array($query);
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary" name="simpan">Perbahrui</button>
+                          <button type="submit" class="btn btn-primary" name="admin">Perbahrui</button>
                         </div>
                       </div>
                     </form>

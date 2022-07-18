@@ -4,6 +4,10 @@ $judul = 'Data Kerjaan';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$sql = "SELECT * FROM kerjaan";
+$query = mysqli_query($koneksi,$sql);
+
 ?>
 
 <!-- content -->
@@ -40,24 +44,26 @@ include '../../komponen/sidebar.php';
                     <tr align="center">
                         <th>No.</th>
                         <th>Nama</th>
-                        <th>Email</th>
-                        <th>Subjek</th>
+                        <th>Deskripsi</th>
+                        <th>Kategori</th>
+                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php $no =1; foreach ($query as $k){?>
                     <tr align="center">
-                        <td>1.</td>
-                        <td>Fadilah Riczky
-                        </td>
-                        <td>friczky@gmail.com</td>
-                        <td>Daftar Akun</td>
+                        <td><?= $no++?>.</td>
+                        <td><?= $k['nama']?></td>
+                        <td><?= substr($k['deskripsi'],0,100)?></td>
+                        <td><?= $k['id_kategori']?></td>
+                        <td><img src="" width="50px" alt=""></td>
                         <td>
                             <a href="<?= admin()?>" class="btn btn-primary">Edit</a>
                             <a href="#" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
-
+                <?php } ?>
                 </tbody>
                 
             </table>

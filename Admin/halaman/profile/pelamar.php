@@ -4,6 +4,12 @@ $judul = 'Profile';
 include '../../komponen/header.php';
 include '../../komponen/navbar-pelamar.php';
 include '../../komponen/sidebar-pelamar.php';
+
+$id = $_SESSION['id'];
+$sql = "SELECT * FROM pengguna WHERE id = $id";
+$query = mysqli_query($koneksi,$sql);
+$row = mysqli_fetch_array($query);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -36,11 +42,11 @@ include '../../komponen/sidebar-pelamar.php';
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="<?= admin_assets()?>dist/img/user4-128x128.jpg"
+                       src="<?= folder_upload() ?><?php if($row['foto'] == null){echo 'profile.png';}else{echo $row['foto'];}?>"  
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center"><?= $row['nama']?></h3>
 
                 <p class="text-muted text-center">Administrator</p>
 
@@ -60,37 +66,40 @@ include '../../komponen/sidebar-pelamar.php';
               <div class="card-body">
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
-                  
+
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form action="aksi.php" class="form-horizontal" method="post" enctype="multipart/form-data" name="simpan">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="nama" class="form-control" id="inputName" value="" name="nama">
+                          <input type="nama" class="form-control" id="inputName" value="<?= $row['nama']?>" name="nama">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" value="" name="email">
+                          <input type="email" class="form-control" id="inputEmail" value="<?= $row['email']?>" name="email">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputName2" value="" name="password">
+                          <input type="password" class="form-control" id="inputName2" value="<?= $row['password']?>" name="password">
+                          <input type="hidden" value="<?= $row['password']?>" name="password_lama">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Foto</label>
                         <div class="col-sm-10">
                           <input type="file" class="form-control" id="inputName2" value="" name="foto">
+                          <input type="hidden" name="foto_old" value="<?= $row['foto']?>">
+                          <input type="hidden" name="id" value="<?= $row['id']?>">
                         </div>
                       </div>
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Perbahrui</button>
+                          <button type="submit" class="btn btn-primary" name="pelamar">Perbahrui</button>
                         </div>
                       </div>
                     </form>

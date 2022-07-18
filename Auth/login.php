@@ -24,9 +24,9 @@
     </div>
     <div class="card-body">
     <?php
-        if(isset($_SESSION['error'])) {
-            $message = $_SESSION['error'];
-            unset($_SESSION['error']);
+        if(isset($_SESSION['pesan'])) {
+            $message = $_SESSION['pesan'];
+            unset($_SESSION['pesan']);
             echo $message;
         }
         ?>
@@ -67,7 +67,7 @@
       </form>
       <!-- /.social-auth-links -->
       <p class="mb-0">
-        <a href="register.html" class="text-center">Daftar Akun Baru</a>
+        <a href="daftar.php" class="text-center">Daftar Akun Baru</a>
       </p>
     </div>
     <!-- /.card-body -->

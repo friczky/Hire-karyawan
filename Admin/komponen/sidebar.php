@@ -1,20 +1,30 @@
 
 <?php 
 
-// if($_SESSION['role'] != '0'){
-//   echo '<script>';
-//   echo 'alert("Anda Tidak Memiliki Akses");';
-//   echo '</script>';
-//   echo '<script>';
-//   echo 'window.location.href = "'.admin().'";';
-//   echo '</script>';
-// }else{
-// }
+if (($_SESSION['role']) == '0') {
+   
+} elseif(($_SESSION['role']) == '1') {
+    echo "<script>alert" ;
+    echo "('Anda Tidak Memiliki Akses, Silahkan Login');" ;
+    echo "window.location.href='../../../Auth/login.php';" ;
+    echo "</script>" ;
+} else {
+    echo "<script>alert" ;
+    echo "('Anda Tidak Memiliki Akses, Silahkan Login');" ;
+    echo "window.location.href='../../../Auth/login.php';" ;
+    echo "</script>" ;
+}
+    
 
-$sql = "SELECT * FROM tentang";
-$query = mysqli_query($koneksi,$sql);
-$row = mysqli_fetch_array($query);
 
+$sql = "SELECT * FROM tentang" ;
+$query = mysqli_query($koneksi,$sql) ;
+$row = mysqli_fetch_array($query) ;
+
+$id = $_SESSION['id'];
+$sql2 = "SELECT * FROM pengguna WHERE id ='$id' ";
+$query2 = mysqli_query($koneksi,$sql2);
+$row2 = mysqli_fetch_array($query2);
 
 ?>
 <!-- Main Sidebar Container -->
@@ -22,7 +32,7 @@ $row = mysqli_fetch_array($query);
     <!-- Brand Logo -->
     <a href="<?= home()?>" class="brand-link">
       <img src="<?= folder_upload()?><?= $row['logo']?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">ADMIN</span>
     </a>
 
     <!-- Sidebar -->
@@ -30,7 +40,7 @@ $row = mysqli_fetch_array($query);
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= admin_assets() ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= folder_upload() ?><?php if($row2['foto'] == null){echo 'profile.png';}else{echo $row2['foto'];}?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?= $_SESSION['nama']?></a>
@@ -62,7 +72,7 @@ $row = mysqli_fetch_array($query);
               </p>
             </a>
           </li>
-
+            
             <!-- halaman master kerjaan  -->
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -139,8 +149,7 @@ $row = mysqli_fetch_array($query);
               </li>
             </ul>
           </li>
-
-          
+ 
             <!-- halaman email terkirim  -->
           <li class="nav-item">
             <a href="<?= admin()?>halaman/email" class="nav-link">
@@ -160,7 +169,7 @@ $row = mysqli_fetch_array($query);
               </p>
             </a>
           </li>
-
+        
           <!-- halaman tentang aplikasi  -->
           <li class="nav-item">
             <a href="<?= admin()?>halaman/tentang" class="nav-link">

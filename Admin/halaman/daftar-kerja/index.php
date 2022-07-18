@@ -3,6 +3,9 @@ $judul = 'Upload Berkas Pendaftaran';
 include '../../komponen/header.php';
 include '../../komponen/navbar-pelamar.php';
 include '../../komponen/sidebar-pelamar.php';
+
+$sql3 = "SELECT * FROM kerjaan";
+$query3 = mysqli_query($koneksi,$sql3);
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -31,7 +34,7 @@ include '../../komponen/sidebar-pelamar.php';
           <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
-               Form Tentang Aplikasi
+               Form Pendaftaran Kerja
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
@@ -43,21 +46,36 @@ include '../../komponen/sidebar-pelamar.php';
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="text" name="nama_Web" class="form-control" placeholder="Nama">
+                          <input type="text" name="nama" value="<?= $row2['nama']?>" class="form-control" placeholder="Nama">
                         </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="nama" value="<?= $row2['email']?>" class="form-control" placeholder="Nama">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Telpon</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="telpon" value="<?= $row2['telpon']?>" class="form-control" placeholder="Masukan Nomer Telpon">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Alamat</label>
+                        <div class="col-sm-10">
+                        <textarea name="alamat" placeholder="Masukan Alamat" id="" cols="30" rows="3" class="form-control"><?= $row2['alamat']?></textarea>
+                      </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kerjaan</label>
                         <div class="col-sm-10">
                           <select name="id_kerjaan" class="form-control" id="">
-                            <option value="">Plihi Loker</option>
+                            <option value="<?= $row2['id_kerjaan']?>"><?php if($row2['id_kerjaan'] == null) { echo 'Plihi Loker' ;} else { echo $row2['id_kerjaan']; }?></option>
+                            <?php foreach($query3 as $loker){?>
+                              <option value="<?= $loker['id']?>"><?= $loker['nama']?></option>
+                            <?php }?>
                           </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Foto</label>
-                        <div class="col-sm-10">
-                          <input type="file" name="logo" class="form-control" id="inputName" >
                         </div>
                       </div>
                       

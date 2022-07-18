@@ -3,6 +3,10 @@ $judul = 'Tambah Kerjaan';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$sql = "SELECT * FROM kategori_kerjaan";
+$query = mysqli_query($koneksi,$sql);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -38,7 +42,7 @@ include '../../komponen/sidebar.php';
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form action="" class="form-horizontal">
+                    <form action="aksi.php" method="post" class="form-horizontal">
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-10">
@@ -50,6 +54,9 @@ include '../../komponen/sidebar.php';
                         <div class="col-sm-10">
                           <select name="id_kategori" id="" class="form-control">
                             <option value="">Pilih Kategori</option>
+                            <?php foreach($query as $k){?>
+                              <option value="<?= $k['id']?>"><?= $k['nama']?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
@@ -68,7 +75,7 @@ include '../../komponen/sidebar.php';
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
+                          <button type="submit" name="tambah_kerjaan" class="btn btn-primary">Simpan</button>
                         </div>
                       </div>
                     </form>
