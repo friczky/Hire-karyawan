@@ -57,7 +57,7 @@ $query = mysqli_query($koneksi,$sql);
                         <td><?= $b['nama']?></td>
                         <td><a href="<?= folder_upload().$b['berkas']?>" class="btn btn-primary sm"><i class="fa fa-download"></i></a></td>
                         <td>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php } ?>
