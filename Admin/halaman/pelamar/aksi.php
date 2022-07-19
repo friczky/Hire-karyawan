@@ -31,7 +31,7 @@ if(isset($_GET['terima'])){
     if($query){
         $nama = $data['nama'];
         $email = $data['email'];
-        $subjek = "Pendaftaran Berhasil";
+        $subjek = "Pendaftaran Belum Diterima !";
         $sql = "INSERT INTO email_terkirim (nama,email,subjek) VALUES ('$nama','$email','$subjek')";
         $query = mysqli_query($koneksi,$sql);
         echo "<script>alert('Berhasil Menolak Pelamar');</script>";
