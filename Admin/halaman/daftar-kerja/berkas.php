@@ -5,7 +5,7 @@ include '../../komponen/navbar-pelamar.php';
 include '../../komponen/sidebar-pelamar.php';
 
 $id = $_SESSION['id'];
-$sql = "SELECT * FROM berkas JOIN pengguna ON berkas.id_pengguna = pengguna.id WHERE id_pengguna = $id";
+$sql = "SELECT * FROM berkas WHERE id_pengguna = $id";
 $query = mysqli_query($koneksi,$sql);
 
 ?>
@@ -43,15 +43,15 @@ $query = mysqli_query($koneksi,$sql);
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form action="aksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <select name="" id="" class="form-control">
+                          <select name="nama_berkas" id="" class="form-control">
                             <option value="">Pilih Jenis Berkas</option>
-                            <option value="CV/Resume/Portfolio">CV/Resume/Portfolio</option>
-                            <option value="Surat Lamaran Kerja">Surat Lamaran Kerja</option>
+                            <option value="1">CV/Resume/Portfolio</option>
+                            <option value="2">Surat Lamaran Kerja</option>
                           </select>
                         </div>
                       </div>
@@ -65,7 +65,8 @@ $query = mysqli_query($koneksi,$sql);
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Upload</button>
+                          <input type="hidden" name="id_pengguna" value="<?= $_SESSION['id']?>">
+                          <button type="submit" name="berkas" class="btn btn-primary">Upload</button>
                         </div>
                       </div>
                     </form>
@@ -87,7 +88,7 @@ $query = mysqli_query($koneksi,$sql);
                     <tr>
                         <th>No.</th>
                         <th>Nama</th>
-                        <th>Download</th>
+                        <th>File</th>
                         <th>Aksi</th>
                     </tr>
                     </thead>
@@ -95,9 +96,12 @@ $query = mysqli_query($koneksi,$sql);
                     <?php $i = 1; while($berkas = mysqli_fetch_assoc($query)) { ?>
                     <tr>
                         <td><?= $i ?></td>
-                        <td><?= $berkas['nama']?>">Lihat berkas</a></td>
-                        <td><a href="<?= folder_upload()?><?= $berkas['berkas']?>">Lihat berkas</a></td>
-                        <td><a href="" class="btn btn-danger">Hapus</a></td>
+                        <td><?php if($berkas['nama_berkas'] == '1'){echo 'CV/RESUME/PORTFOLIO';}else{echo 'Surat Lamaran Kerja';}?></a></td>
+                        <td><a href="<?= folder_upload().$berkas['berkas']?>" target="blank">Lihat File</a></td>
+                        <td>
+                          <a href="aksi.php?download=<?= $berkas['id']?>" class="btn btn-primary"><i class="fa fa-download"></i></a>
+                          <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                        </td>
                     </tr>
                     <?php $i++; } ?>
                     </tbody>

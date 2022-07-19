@@ -27,6 +27,7 @@
         if(isset($_SESSION['pesan'])) {
             $message = $_SESSION['pesan'];
             unset($_SESSION['pesan']);
+            session_destroy();
             echo $message;
         }
         ?>

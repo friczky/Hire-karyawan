@@ -4,6 +4,9 @@ $judul = 'Email Terkirim';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$query = mysqli_query($koneksi,"SELECT * FROM email_terkirim");
+
 ?>
 
 <!-- content -->
@@ -46,18 +49,18 @@ include '../../komponen/sidebar.php';
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 1; foreach($query as $data){?>
                     <tr align="center">
-                        <td>1.</td>
-                        <td>Fadilah Riczky
-                        </td>
-                        <td>friczky@gmail.com</td>
-                        <td>Daftar Akun</td>
+                        <td><?= $i++?>.</td>
+                        <td><?= $data['nama']?></td>
+                        <td><?= $data['email']?></td>
+                        <td><?= $data['subjek']?></td>
                         <td>
                             <a href="#" class="btn btn-primary">Detail</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="aksi.php?hapus=<?= $data['id']?>" onclick="return confirm('Apakah anda ingin menghapus data email ini ?')" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
-
+                    <?php }?>
                 </tbody>
                 
             </table>

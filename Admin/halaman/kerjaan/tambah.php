@@ -55,7 +55,7 @@ $query = mysqli_query($koneksi,$sql);
                           <select name="id_kategori" id="" class="form-control">
                             <option value="">Pilih Kategori</option>
                             <?php foreach($query as $k){?>
-                              <option value="<?= $k['id']?>"><?= $k['nama']?></option>
+                              <option value="<?= $k['id_kategori']?>"><?= $k['kategori']?></option>
                             <?php } ?>
                           </select>
                         </div>

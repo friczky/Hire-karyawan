@@ -54,13 +54,13 @@ $query = mysqli_query($koneksi,$sql);
                 <?php $no =1; foreach ($query as $k){?>
                     <tr align="center">
                         <td><?= $no++?>.</td>
-                        <td><?= $k['nama']?></td>
-                        <td><?= substr($k['deskripsi'],0,100)?></td>
+                        <td><?= $k['nama_kerjaan']?></td>
+                        <td><?= substr($k['deskripsi'],0,30)?>....</td>
                         <td><?= $k['kategori']?></td>
                         <td><img src="<?= folder_upload()?><?= $k['foto']?>" width="50px" alt=""></td>
                         <td>
-                            <a href="edit.php?id=<?= $k['id']?>" class="btn btn-primary">Edit</a>
-                            <a href="aksi.php?hapus_kerjaan=<?= $k['id']?>" onclick="return confirm('Apakah ingin menghapus data kerjaan ini ?')" class="btn btn-danger">Hapus</a>
+                            <a href="edit.php?id=<?= $k['id_kerjaan']?>" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                            <a href="aksi.php?hapus_kerjaan=<?= $k['id_kerjaan']?>" onclick="return confirm('Apakah ingin menghapus data kerjaan ini ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php } ?>

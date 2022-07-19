@@ -19,7 +19,7 @@ function daftar(){
 }
 
 function Logout(){
-    return base_url()."Auth/login.php";
+    return base_url()."Auth/index.php?logout=yes";
 }
 
 

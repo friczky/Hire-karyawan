@@ -4,6 +4,10 @@ $judul = 'Data Berkas';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$sql = "SELECT * FROM berkas join pengguna on berkas.id_pengguna = pengguna.id";
+$query = mysqli_query($koneksi,$sql);
+
 ?>
 
 <!-- content -->
@@ -46,18 +50,17 @@ include '../../komponen/sidebar.php';
                     </tr>
                 </thead>
                 <tbody>
+                <?php $no =1; foreach ($query as $b){?>
                     <tr align="center">
-                        <td>1.</td>
-                        <td>CV
-                        </td>
-                        <td>Fadilah Riczky</td>
-                        <td><a href="" class="btn btn-primary sm"><i class="fa fa-download"></i></a></td>
+                        <td><?= $no++?>.</td>
+                        <td><?= $b['nama_berkas']?></td>
+                        <td><?= $b['nama']?></td>
+                        <td><a href="<?= folder_upload().$b['berkas']?>" class="btn btn-primary sm"><i class="fa fa-download"></i></a></td>
                         <td>
-                            <a href="#" class="btn btn-primary">Detail</a>
                             <a href="#" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
-
+                <?php } ?>
                 </tbody>
                 
             </table>

@@ -4,6 +4,9 @@ $judul = 'Data Pelamar';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+$sql = " SELECT * FROM pengguna join kerjaan  WHERE pengguna.id_kerjaan = kerjaan.id_kerjaan AND role = 1";
+$query = mysqli_query($koneksi,$sql);
 ?>
 
 <!-- content -->
@@ -31,7 +34,7 @@ include '../../komponen/sidebar.php';
         <br>
         <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Data Email Terkirim</h3>
+            <h3 class="card-title">Data Pelamar Kerja</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -41,23 +44,36 @@ include '../../komponen/sidebar.php';
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Subjek</th>
+                        <th>Lowongan Kerja</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php $no =1; foreach ($query as $data){?>
                     <tr align="center">
-                        <td>1.</td>
-                        <td>Fadilah Riczky
-                        </td>
-                        <td>friczky@gmail.com</td>
-                        <td>Daftar Akun</td>
+                        <td><?= $no++?>.</td>
+                        <td><?= $data['nama']?></td>
+                        <td><?= $data['email']?></td>
+                        <td><?= $data['nama_kerjaan']?></td>
+                        <th>
+                            <?php 
+                            if($data['status_kerja'] == 0){
+                                echo '<div class="badge badge-danger">Belum Diterima</div>';
+                            }elseif($data['status_kerja'] == 1){ 
+                                echo '<div class="badge badge-success">Diterima</div>';
+                            }else{
+                                echo '<div class="badge badge-info">Belum Dikonfirmasi</div>';
+                            }
+                                ?>
+                        </th>
                         <td>
-                            <a href="#" class="btn btn-primary">Detail</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                            <a href="detail.php?id=<?= $data['id']?>" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>
+                            <a href="aksi.php?terima=<?= $data['id']?>" class="btn btn-success"><i class="fa fa-check-square xs"></i></a>
+                            <a href="aksi.php?tolak=<?= $data['id']?>" class="btn btn-danger"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
-
+                <?php } ?>
                 </tbody>
                 
             </table>

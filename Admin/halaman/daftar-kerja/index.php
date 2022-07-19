@@ -6,6 +6,11 @@ include '../../komponen/sidebar-pelamar.php';
 
 $sql3 = "SELECT * FROM kerjaan";
 $query3 = mysqli_query($koneksi,$sql3);
+
+$sql = "SELECT * FROM pengguna join kerjaan on pengguna.id_kerjaan = kerjaan.id_kerjaan where pengguna.id = '$_SESSION[id]'";
+$query = mysqli_query($koneksi,$sql);
+$data = mysqli_fetch_assoc($query);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -41,7 +46,7 @@ $query3 = mysqli_query($koneksi,$sql3);
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form action="aksi.php" method="post" class="form-horizontal">
 
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
@@ -52,11 +57,11 @@ $query3 = mysqli_query($koneksi,$sql3);
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="text" name="nama" value="<?= $row2['email']?>" class="form-control" placeholder="Nama">
+                          <input type="text" name="email" value="<?= $row2['email']?>" class="form-control" placeholder="Nama">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Telpon</label>
+                        <label class="col-sm-2 col-form-label">Telpon (Whatsapp)</label>
                         <div class="col-sm-10">
                           <input type="text" name="telpon" value="<?= $row2['telpon']?>" class="form-control" placeholder="Masukan Nomer Telpon">
                         </div>
@@ -71,9 +76,9 @@ $query3 = mysqli_query($koneksi,$sql3);
                         <label class="col-sm-2 col-form-label">Kerjaan</label>
                         <div class="col-sm-10">
                           <select name="id_kerjaan" class="form-control" id="">
-                            <option value="<?= $row2['id_kerjaan']?>"><?php if($row2['id_kerjaan'] == null) { echo 'Plihi Loker' ;} else { echo $row2['id_kerjaan']; }?></option>
+                            <option value="<?= $row2['id_kerjaan']?>"><?php if($row2['id_kerjaan'] == null) { echo 'Plihi Loker' ;} else { echo $data['nama_kerjaan'].' ( Saat Ini )'; }?></option>
                             <?php foreach($query3 as $loker){?>
-                              <option value="<?= $loker['id']?>"><?= $loker['nama']?></option>
+                              <option value="<?= $loker['id_kerjaan']?>"><?= $loker['nama_kerjaan']?></option>
                             <?php }?>
                           </select>
                         </div>
@@ -82,7 +87,8 @@ $query3 = mysqli_query($koneksi,$sql3);
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Perbahrui</button>
+                          <input type="hidden" name="id" value="<?= $row2['id']?>">
+                          <button type="submit" name="pelamar" class="btn btn-primary">Perbahrui</button>
                         </div>
                       </div>
                     </form>

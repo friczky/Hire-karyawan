@@ -3,6 +3,17 @@ $judul = 'Edit Kerjaan';
 include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
+
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM kerjaan join kategori_kerjaan WHERE kerjaan.id_kerjaan='$id' AND kerjaan.id_kategori=kategori_kerjaan.id_kategori";
+  $edit = mysqli_query($koneksi,$sql);
+  $data = mysqli_fetch_assoc($edit);
+}
+
+$sql2 = "SELECT * FROM kategori_kerjaan";
+$query = mysqli_query($koneksi,$sql2);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -38,25 +49,28 @@ include '../../komponen/sidebar.php';
                   <div class="active tab-pane" id="activity">
 
                   <div class="tab-pane" id="settings">
-                    <form action="" class="form-horizontal">
+                    <form action="aksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-10">
-                          <input type="text" name="judul" class="form-control" id="inputName" placeholder="Judul Kerjaan">
+                          <input type="text" name="nama" value="<?= $data['nama_kerjaan']?>" class="form-control" id="inputName" placeholder="Judul Kerjaan">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
                           <select name="id_kategori" id="" class="form-control">
-                            <option value="">Pilih Kategori</option>
+                            <option value="<?= $data['id_kategori']?>"><?= $data['kategori']?> (Pilihan Saat Ini)</option>
+                            <?php foreach($query as $k){?>
+                              <option value="<?= $k['id_kategori']?>"><?= $k['kategori']?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="deskripsi" id="summernote" cols="30" rows="10"></textarea>
+                          <textarea class="form-control" name="deskripsi" id="summernote" cols="30" rows="10"><?= $data['deskripsi']?></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -68,7 +82,9 @@ include '../../komponen/sidebar.php';
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
+                          <input type="hidden" name="id" value="<?= $data['id']?>">
+                          <input type="hidden" name="foto_old" value="<?= $data['foto']?>">
+                          <button type="submit" name="edit_kerjaan" class="btn btn-primary">Simpan</button>
                         </div>
                       </div>
                     </form>

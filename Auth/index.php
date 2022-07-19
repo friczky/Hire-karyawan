@@ -13,6 +13,8 @@ if(isset($_POST['login'])){
             $_SESSION['nama'] = $row['nama'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['role'];
+            $_SESSION['pesan'] = '<div class="alert alert-success">Anda berhasil login !</div>';
+            header("Location:".login());
             header("Location:".admin());
         }elseif($row['role'] == '1'){
             session_start();
@@ -44,7 +46,7 @@ if(isset($_POST['login'])){
     }
 }elseif(isset($_GET['logout'])){
     session_start();
-    session_destroy();
+    $_SESSION['pesan'] = '<div class="alert alert-success">Anda Berhasil Logout !</div>';
     header('location:index.php');
 }else{
     header('location:'.login());

@@ -46,7 +46,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
-          <a href="<?= admin()?>" class="dropdown-item">
+          <a href="<?= logout()?>" class="dropdown-item">
           <i class="fas fa-sign-out-alt"></i> Keluar
           </a>
         </div>
