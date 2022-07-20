@@ -5,7 +5,7 @@ include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
 
-$sql = "SELECT * FROM kerjaan join kategori_kerjaan on kerjaan.id_kategori = kategori_kerjaan.id_kategori";
+$sql = "SELECT * FROM kerjaan join kategori_kerjaan on kerjaan.id_kategori = kategori_kerjaan.id_kategori order by kerjaan.id_kerjaan desc";
 $query = mysqli_query($koneksi,$sql);
 
 ?>
@@ -54,7 +54,7 @@ $query = mysqli_query($koneksi,$sql);
                 <?php $no =1; foreach ($query as $k){?>
                     <tr align="center">
                         <td><?= $no++?>.</td>
-                        <td><?= $k['nama_kerjaan']?></td>
+                        <td><a href="<?= home()?>detail/?loker=<?= $k['id_kerjaan']?>"class=""  target="blank"><?= $k['nama_kerjaan']?></a></td>
                         <td><?= substr($k['deskripsi'],0,30)?>....</td>
                         <td><?= $k['kategori']?></td>
                         <td><img src="<?= folder_upload()?><?= $k['foto']?>" width="50px" alt=""></td>

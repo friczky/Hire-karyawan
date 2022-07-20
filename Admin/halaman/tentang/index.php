@@ -51,6 +51,12 @@ $data = mysqli_fetch_assoc($query);
                         </div>
                       </div>
                       <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <div class="col-sm-10">
+                          <textarea name="deskripsi" id="summernote" cols="10" rows="3" class="form-control"><?= $data['deskripsi']?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Maps URL</label>
                         <div class="col-sm-10">
                           <textarea name="maps_url" id="" cols="10" rows="3" class="form-control"><?= $data['maps_url']?></textarea>
@@ -64,6 +70,13 @@ $data = mysqli_fetch_assoc($query);
                         </div>
                       </div>
                       
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Foto</label>
+                        <div class="col-sm-10">
+                          <input type="file" name="foto" class="form-control" id="inputName" >
+                          <input type="hidden" name="foto_old" value="<?= $data['foto']?>">
+                        </div>
+                      </div>
                       
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">

@@ -43,5 +43,5 @@
 
 </head>
 
-<body>
+<body class="sub_page">
   <div class="hero_area">

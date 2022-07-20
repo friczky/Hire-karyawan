@@ -66,25 +66,6 @@ function home_assets(){
     return assets().'Home/';
 }
 
-// folder home css
-function home_css(){
-    return assets().'Home/assets/css/';
-}
-
-// folder home javascript
-function home_js(){
-    return assets().'Home/assets/js/';
-}
-
-// folder home img
-function home_img(){
-    return assets().'Home/assets/img';
-}
-
-// folder home img
-function home_vendor(){
-    return assets().'Home/vendor/';
-}
 
 // folder home img
 function folder_upload(){

@@ -20,7 +20,7 @@ $data = mysqli_fetch_assoc($query);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tentang Aplikasi</h1>
+            <h1>Daftar Kerja</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

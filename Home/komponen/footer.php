@@ -1,27 +1,24 @@
-<footer>
+  <!-- footer section -->
+  <footer class="footer_section">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Marketplace Co., Ltd. All rights reserved.
-          &nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-        </div>
-      </div>
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
     </div>
   </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="<?= home_assets() ?>js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="<?= home_assets() ?>js/bootstrap.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="<?= home_assets() ?>js/custom.js"></script>
 
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="<?= home_assets()?>vendor/jquery/jquery.min.js"></script>
-  <script src="<?= home_assets()?>vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
 
-  <script src="<?= home_assets()?>assets/js/isotope.min.js"></script>
-  <script src="<?= home_assets()?>assets/js/owl-carousel.js"></script>
-  <script src="<?= home_assets()?>assets/js/wow.js"></script>
-  <script src="<?= home_assets()?>assets/js/tabs.js"></script>
-  <script src="<?= home_assets()?>assets/js/popup.js"></script>
-  <script src="<?= home_assets()?>assets/js/custom.js"></script>
-
-  </body>
 </html>
