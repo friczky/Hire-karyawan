@@ -4,6 +4,23 @@ include '../../komponen/header.php';
 include '../../komponen/navbar.php';
 include '../../komponen/sidebar.php';
 
+$kerjaan = "SELECT * FROM kerjaan";
+$kerjaan = mysqli_query($koneksi,$kerjaan);
+$kerjaan = mysqli_num_rows($kerjaan);
+
+$pelamar = "SELECT * FROM pengguna join kerjaan on pengguna.id_kerjaan = kerjaan.id_kerjaan";
+$pelamar = mysqli_query($koneksi,$pelamar);
+$pelamar = mysqli_num_rows($pelamar);
+
+$berkas = "SELECT * FROM berkas";
+$berkas = mysqli_query($koneksi,$berkas);
+$berkas = mysqli_num_rows($berkas);
+
+
+$pengguna = "SELECT * FROM pengguna";
+$pengguna = mysqli_query($koneksi,$pengguna);
+$pengguna = mysqli_num_rows($pengguna);
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -41,7 +58,7 @@ include '../../komponen/sidebar.php';
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $kerjaan  ?></h3>
 
                             <p>Data Kerjaan</p>
                         </div>
@@ -58,8 +75,7 @@ include '../../komponen/sidebar.php';
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53
-                            </h3>
+                            <h3><?= $pelamar ?></h3>
 
                             <p>Data Pelamar</p>
                         </div>
@@ -76,7 +92,7 @@ include '../../komponen/sidebar.php';
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3><?= $berkas ?></h3>
 
                             <p>Data Berkas</p>
                         </div>
@@ -93,7 +109,7 @@ include '../../komponen/sidebar.php';
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3><?= $pengguna?></h3>
 
                             <p>Data Pengguna</p>
                         </div>
