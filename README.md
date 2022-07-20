@@ -10,3 +10,7 @@ Aplikasi ini merupakan sistem untuk memanajemen lowongan kerja. Aplikasi ini dib
 # Syarat Penggunaan
 1. PHP 7 >
 2. Mysql
+
+# Sumber Daya
+1. Template Admin : AdminLTE
+2. Template Frontend : Hirevac https://html.design/download/career-job-html-template/
