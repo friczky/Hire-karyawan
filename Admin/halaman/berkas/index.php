@@ -53,7 +53,7 @@ $query = mysqli_query($koneksi,$sql);
                 <?php $no =1; foreach ($query as $b){?>
                     <tr align="center">
                         <td><?= $no++?>.</td>
-                        <td><?= $b['nama_berkas']?></td>
+                        <td><?php if($b['nama_berkas'] == '1'){echo 'CV/RESUME/PORTFOLIO';}else{echo 'Surat Lamaran Kerja';}?></td>
                         <td><?= $b['nama']?></td>
                         <td><a href="<?= folder_upload().$b['berkas']?>" class="btn btn-primary sm"><i class="fa fa-download"></i></a></td>
                         <td>
