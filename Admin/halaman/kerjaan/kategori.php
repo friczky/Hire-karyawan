@@ -68,7 +68,7 @@ if(isset($_GET['edit'])){
                 <div class="form-group row">
                         <div class="col-sm-6">
                         <form action="aksi.php" method="post">
-                        <input type="text" class="form-control" name="kategori" placeholder="Masukan Nama Kategori" value="<?= $nama ?>">
+                        <input type="text" class="form-control" name="kategori" placeholder="Masukan Nama Kategori" value="<?= $nama ?>" required>
                         <input type="hidden" name="id" value="<?= $id ?>">  
                       </div>
                         <div class="col-sm-6 text-right">
