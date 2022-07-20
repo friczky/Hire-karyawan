@@ -54,7 +54,7 @@ $query = mysqli_query($koneksi,$sql);
                 <?php $no =1; foreach ($query as $k){?>
                     <tr align="center">
                         <td><?= $no++?>.</td>
-                        <td><a href="<?= home()?>detail/?loker=<?= $k['id_kerjaan']?>"class=""  target="blank"><?= $k['nama_kerjaan']?></a></td>
+                        <td><a href="<?= home()?>detail/?loker=<?= $k['id_kerjaan']?>"class=""  target="_blank"><?= $k['nama_kerjaan']?></a></td>
                         <td><?= substr($k['deskripsi'],0,30)?>....</td>
                         <td><?= $k['kategori']?></td>
                         <td><img src="<?= folder_upload()?><?= $k['foto']?>" width="50px" alt=""></td>
