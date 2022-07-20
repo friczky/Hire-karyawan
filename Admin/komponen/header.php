@@ -10,6 +10,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= admin_assets() ?>plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
+  <link rel="shortcut icon" href="<?= folder_upload()?>" type="image/x-icon">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="<?= admin_assets() ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
