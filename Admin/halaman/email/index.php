@@ -56,7 +56,6 @@ $query = mysqli_query($koneksi,"SELECT * FROM email_terkirim");
                         <td><?= $data['email']?></td>
                         <td><?= $data['subjek']?></td>
                         <td>
-                            <a href="#" class="btn btn-primary">Detail</a>
                             <a href="aksi.php?hapus=<?= $data['id']?>" onclick="return confirm('Apakah anda ingin menghapus data email ini ?')" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
