@@ -4,7 +4,8 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="<?= home()?>">
             <span>
-              Hirevac
+            <img src="<?= folder_upload() ?><?= $data_tentang['logo']?>" class="navbar-logo" alt="" width="5%">
+              <?= $data_tentang['nama_web']?>
             </span>
           </a>
 

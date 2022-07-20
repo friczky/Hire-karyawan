@@ -21,10 +21,10 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-
+  <link rel="icon" type="image/x-icon" href="<?= folder_upload().$data_tentang['logo']?>">
   <title><?= $title?> - <?= $data_tentang['nama_web']?></title>
 
-
+  
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="<?= home_assets() ?>css/bootstrap.css" />
 
