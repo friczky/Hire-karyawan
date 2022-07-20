@@ -26,7 +26,7 @@ include '../komponen/navbar.php';
           <div class="col-lg-6">
             <div class="box">
               <div class="job_content-box">
-                <div class="img-box">
+                <div class="img-box" style="padding: 5px; border-radius:10%;border:1px;">
                   <img src="<?= folder_upload().$data_kerjaan['foto']?>" alt="">
                 </div>
                 <div class="detail-box">
