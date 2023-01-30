@@ -15,6 +15,7 @@ if(isset($_GET['terima'])){
         $subjek = "Pendaftaran Berhasil";
         $sql = "INSERT INTO email_terkirim (nama,email,subjek) VALUES ('$nama','$email','$subjek')";
         $query = mysqli_query($koneksi,$sql);
+        include 'terima.php';
         echo "<script>alert('Berhasil Menerima Pelamar');</script>";
         echo "<script>location='index.php?';</script>";
     }else{
@@ -34,6 +35,7 @@ if(isset($_GET['terima'])){
         $subjek = "Pendaftaran Belum Diterima !";
         $sql = "INSERT INTO email_terkirim (nama,email,subjek) VALUES ('$nama','$email','$subjek')";
         $query = mysqli_query($koneksi,$sql);
+        include 'tolak.php';
         echo "<script>alert('Berhasil Menolak Pelamar');</script>";
         echo "<script>location='index.php?';</script>";
     }else{

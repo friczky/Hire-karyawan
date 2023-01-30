@@ -1,4 +1,6 @@
 <?php 
+
+
 include '../Config/koneksi.php';
 if(isset($_POST['login'])){
     $email = $_POST['email'];
@@ -37,8 +39,11 @@ if(isset($_POST['login'])){
     $query = mysqli_query($koneksi,$sql);
     if($query){
         session_start();
-        $_SESSION['pesan'] = '<div class="alert alert-success">Berhasil Membuat Akun , Silahkan Cek Email Anda !</div>';
-        header('location:index.php');
+
+        include 'mail.php';
+
+        // $_SESSION['pesan'] = '<div class="alert alert-success">Berhasil Membuat Akun , Silahkan Cek Email Anda !</div>';
+        // header('location:index.php');
     }else{
         session_start();
     $_SESSION['pesan'] = '<div class="alert alert-danger">Email atau Password Salah</div>';

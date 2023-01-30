@@ -28,7 +28,7 @@ include '../komponen/navbar.php';
 
               </ul>
             </p>
-            <a href="https://wa.me/<?= $data_kontak['telpon']?>?text=Halo, saya ingin bertanya lebih lanjut tentang pekerjaan yang tersedia di layanan website anda.">
+            <a href="https://wa.me/<?= $data_kontak['telpon']?>?text=Halo, saya ingin bertanya lebih lanjut tentang pekerjaan yang tersedia di layanan website anda." target="_blank">
               <i class="fa fa-whatsapp"></i> Whatsapp
             </a>
           </div>
