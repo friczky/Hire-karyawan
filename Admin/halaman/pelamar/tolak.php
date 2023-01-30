@@ -36,13 +36,9 @@ require '../../../Assets/library/phpmailer/src/SMTP.php';
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = '<h2 style="color:green;">Pendaftaran Berhasil</h2><br>Hi '.$nama.',
-        <br><br>Terima kasih telah mendaftar di '.$smtp['nama_web'].'<br><br>Silahkan klik link dibawah ini untuk melakukan login akun anda<br><br>
-        <a href="'.login().'">Masuk Akun</a><br><br>
-        Berikut detail akun kamu:<br><br>
-        Email : '.$email.'<br>
-        Password : '.$_POST['password'].'<br><br>
+        $mail->Subject = $subjek;
+        $mail->Body    = '<h2 style="color:orange;">Mohon Maaf , setelah kami periksa data kamu , kamu belum dapat kami terima untuk melamar pada perusahaan kami.</h2><br>Hi '.$nama.',
+        <br><br>Terima kasih telah mendaftar di '.$smtp['nama_web'].'<br><br>Silahkan coba lagi dan jangan patah semangat ya.<br><br>
         Salam,<br>
         '.$smtp['nama_web'].'<br>';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

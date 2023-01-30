@@ -36,7 +36,7 @@ require '../../../Assets/library/phpmailer/src/SMTP.php';
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Lolos Seleksi';
+        $mail->Subject = $subjek;
         $mail->Body    = '<h2 style="color:green;">Selamat , Lamaranmu telah kami periksan dan telah lolos seleksi</h2><br>Hi '.$nama.',
         <br><br>Terima kasih telah mendaftar di '.$smtp['nama_web'].'<br><br>Silahkan menunggu konfirmasi kami akan menghubungi melalui whatsapp berdasarkan nomor yang telah kamu masukan.<br><br>
         Salam,<br>
