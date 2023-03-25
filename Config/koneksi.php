@@ -13,5 +13,3 @@ if(!$koneksi){
 
 }
 include 'route.php';
-
-?>
