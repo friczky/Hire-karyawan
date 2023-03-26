@@ -171,14 +171,14 @@ $row2 = mysqli_fetch_array($query2);
           </li>
 
           <!-- halaman data kontak  -->
-          <li class="nav-item">
-            <a href="<?= admin()?>halaman/smtp" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-                SMTP MAIL 
-              </p>
-            </a>
-          </li>
+          <!--<li class="nav-item">-->
+          <!--  <a href="<?= admin()?>halaman/smtp" class="nav-link">-->
+          <!--    <i class="nav-icon fas fa-address-book"></i>-->
+          <!--    <p>-->
+          <!--      SMTP MAIL -->
+          <!--    </p>-->
+          <!--  </a>-->
+          <!--</li>-->
         
           <!-- halaman tentang aplikasi  -->
           <li class="nav-item">
