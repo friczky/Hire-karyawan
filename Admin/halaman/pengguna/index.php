@@ -83,7 +83,7 @@ include '../../komponen/sidebar.php';
                         <td><img src="../../upload/<?= $data['foto']?>" width="50px" alt=""></td>
                         <td>
                             <a href="edit.php?id=<?= $data['id']?>" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="aksi.php?id=<?= $data['id']?>&hapus" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="aksi.php?id=<?= $data['id']?>&hapus" onclick="return confirm('Apakah ingin menghapus akun ini ?')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php $i++; } ?>
