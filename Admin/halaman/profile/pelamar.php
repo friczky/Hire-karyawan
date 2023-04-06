@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($query);
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="nama" class="form-control" id="inputName" value="<?= $row['nama']?>" name="nama">
+                          <input type="text" class="form-control" id="inputName" value="<?= $row['nama']?>" name="nama">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -98,8 +98,26 @@ $row = mysqli_fetch_array($query);
                       </div>
                       
                       <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Status Pendaftaran</label>
+                        <div class="col-sm-10">
+                            <?php 
+                            if($row['status_kerja'] == null){?>
+                                <div class="badge badge-primary">Sedang Diproses</div>
+                            <?php
+                            }elseif($row['status_kerja'] == 0){
+                            ?>
+                            <div class="badge badge-success">Diterima</div>
+                            <?php
+                            }else{
+                            ?>
+                            <div class="badge badge-warning">Belum Diterima</div>
+                            <?php }?>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary" name="pelamar">Perbahrui</button>
+                          <button type="submit" class="btn btn-primary" name="pelamar">Simpan</button>
                         </div>
                       </div>
                     </form>

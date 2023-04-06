@@ -94,7 +94,7 @@ $data = mysqli_fetch_assoc($query);
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <input type="hidden" name="id" value="<?= $row2['id'] ?>">
-                          <button type="submit" name="pelamar" class="btn btn-primary">Perbahrui</button>
+                          <button type="submit" name="pelamar" class="btn btn-primary">Kirim</button>
                         </div>
                       </div>
                     </form>
